@@ -1,5 +1,5 @@
 import unittest
-from mean import mean
+from src.mean import mean  # 修正: インポートパスを変更
 
 
 class TestMean(unittest.TestCase):
