@@ -1,6 +1,6 @@
 import math
 
-from src.mean import mean
+from src.mean import Mean
 
 
 def median(data_array):
@@ -20,7 +20,7 @@ def median(data_array):
         response_values = []
         for i in indexes: 
             response_values.append(data_array[i - 1]) # array index starts from 0
-        return mean(response_values)
+        return Mean().mean(response_values)
 
 
 def _get_median_index(data_array):

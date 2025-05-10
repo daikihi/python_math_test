@@ -20,3 +20,6 @@ class TestMedian(unittest.TestCase):
         """ mixed elements of array returns the median value"""
         mixed_result = median([-1, 2, -3, 4, -5])
         self.assertEqual(mixed_result, -1)
+
+if __name__ == "__main__":
+    unittest.main()
