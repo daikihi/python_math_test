@@ -4,7 +4,6 @@ def variance(data_array):
     if len(data_array) == 0:
         return 0
 
-    print("=========", data_array)
     mean = sum(data_array) / len(data_array)
 
     print("mean", mean)
