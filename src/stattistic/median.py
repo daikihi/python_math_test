@@ -1,7 +1,7 @@
 import math
 import statistics
 
-from src.mean import Mean
+from src.stattistic.mean import Mean
 
 class Median:
     def median(self,data_array):

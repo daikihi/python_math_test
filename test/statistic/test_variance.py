@@ -1,5 +1,5 @@
 import unittest
-from src.variance import variance
+from src.stattistic.variance import variance
 
 class TestVariance(unittest.TestCase):
     def test_variance(self):

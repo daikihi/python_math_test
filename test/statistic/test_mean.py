@@ -1,5 +1,5 @@
 import unittest
-from src.mean import Mean  # 修正: インポートパスを変更
+from src.stattistic.mean import Mean  # 修正: インポートパスを変更
 
 class TestMean(unittest.TestCase):
     """unit testing for mean.py"""

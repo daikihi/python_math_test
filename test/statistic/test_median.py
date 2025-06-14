@@ -1,5 +1,5 @@
 import unittest
-from src.median import Median 
+from src.stattistic.median import Median 
 
 class TestMedian(unittest.TestCase):
     def test_median(self):
