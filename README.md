@@ -9,6 +9,8 @@ if you are using python on windows, then check for your envienment (maybe for po
 ```bash
 $ python3 -mvenv venv 
 $ source venv/bin/activate  
+# or 
+$ source env/bin/acticate
 ```
 
 ## math functions
@@ -43,6 +45,5 @@ current this package is implemented only simple integral function such y = ax + 
 ## Testing
 ```bash
 # testing
-$ python3 -m unittest discover -s test/statistic
-$ python3 -m unittest discover -s test/caliculus
+$ python3 -m unittest discover -s test
 ```
