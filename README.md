@@ -47,3 +47,9 @@ current this package is implemented only simple integral function such y = ax + 
 # testing
 $ python3 -m unittest discover -s test
 ```
+
+# experience using open data
+
+For practical experience, I utilize open data from the following site and queries. Although navigating this site can be quite challenging, the real-world open data it offers is invaluable for studying.
+
+Here’s an example of sample data on honey imports: https://www.e-stat.go.jp/stat-search?page=1&query=%E3%81%AF%E3%81%A1%E3%81%BF%E3%81%A4%E3%80%80%E8%BC%B8%E5%85%A5&layout=dataset&metadata=1&data=1
