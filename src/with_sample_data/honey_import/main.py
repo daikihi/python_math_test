@@ -1,5 +1,6 @@
 from file_system_loader import load_xls_binary_data_from_file
 from honey_import_information import HoneyImportInfomation
+from data_logger import print_honey_import_info
 
 def parse_first_row(line):
     year = line[0]
@@ -41,13 +42,6 @@ def parse_xls_file(xls_file_root):
         i += 1
     return honey_import_infp
 
-
-def print_honey_import_info(_honey_import_infp):
-    print(f"Year: {_honey_import_infp.year}, Month: {_honey_import_infp.month}")
-    for country, count in _honey_import_infp.country_amount_map.items():
-        print(f"{country}: {count}")
-    for country, price in _honey_import_infp.country_price_map.items():
-        print(f"{country}: {price} JPY")
 
 def parse_xls_main(xls_file_list):
     for xls_file_name in xls_file_list:
