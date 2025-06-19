@@ -1,7 +1,7 @@
 from file_system_loader import load_xls_binary_data_from_file
 
 # contains honey importing data for an year and month
-class SimpleHoneyContries:
+class HoneyImportInfomation:
     def __init__ (self, year, month, countries):
         self.year = year
         self.month = month
@@ -15,48 +15,48 @@ def parse_first_row(line):
     year = line[0]
     month = line[1]
     countries = line[7:]
-    return SimpleHoneyContries(year, month, countries)
+    return HoneyImportInfomation(year, month, countries)
 
-def parse_fifth_row(line, simple_honey_countries):
+def parse_fifth_row(line, honey_import_infp):
     i = 0
     for countryCount in line[7:]:
-        ele = list(simple_honey_countries.country_amount_map.items())[i]
+        ele = list(honey_import_infp.country_amount_map.items())[i]
         count = int(ele.__getitem__(1))
         country = ele.__getitem__(0)
         if count > 0:  # an element should be appeared only once
             panic(f"Error: {ele.__getitem__(0)} should be 0, but it is {ele.__getitem__(1)}")
-        simple_honey_countries.country_amount_map.update({country: int(countryCount)})
+        honey_import_infp.country_amount_map.update({country: int(countryCount)})
         i += 1
 
-def parse_sixth_row(line, simple_honey_countries):
+def parse_sixth_row(line, honey_import_infp):
     i = 0
     for countryCount in line[7:]:
-        ele = list(simple_honey_countries.country_price_map.items())[i]
+        ele = list(honey_import_infp.country_price_map.items())[i]
         count = int(ele.__getitem__(1))
         country = ele.__getitem__(0)
         if count > 0:  # an element should be appeared only once
             panic(f"Error: {ele.__getitem__(0)} should be 0, but it is {ele.__getitem__(1)}")
-        simple_honey_countries.country_price_map.update({country: int(countryCount)})
+        honey_import_infp.country_price_map.update({country: int(countryCount)})
         i += 1
 
 def parse_xls_file(xls_file_root):
     i = 0
     for key in xls_file_root:
         if i == 0:
-            simple_honey_countries = parse_first_row(xls_file_root[key])
+            honey_import_infp = parse_first_row(xls_file_root[key])
         elif i == 4: # 第二数量
-            parse_fifth_row(xls_file_root[key], simple_honey_countries)
+            parse_fifth_row(xls_file_root[key], honey_import_infp)
         elif i == 5: # 第二価格
-            parse_sixth_row(xls_file_root[key], simple_honey_countries)
+            parse_sixth_row(xls_file_root[key], honey_import_infp)
         i += 1
-    return simple_honey_countries
+    return honey_import_infp
 
 
-def print_simple_honey_counts(simple_honey_counts):
-    print(f"Year: {simple_honey_counts.year}, Month: {simple_honey_counts.month}")
-    for country, count in simple_honey_counts.country_amount_map.items():
+def print_honey_import_info(_honey_import_infp):
+    print(f"Year: {_honey_import_infp.year}, Month: {_honey_import_infp.month}")
+    for country, count in _honey_import_infp.country_amount_map.items():
         print(f"{country}: {count}")
-    for country, price in simple_honey_counts.country_price_map.items():
+    for country, price in _honey_import_infp.country_price_map.items():
         print(f"{country}: {price} JPY")
 
 def parse_xls_main(xls_file_list):
@@ -64,8 +64,8 @@ def parse_xls_main(xls_file_list):
         # xls_file_name = "src/with_sample_data/honey_import/resoiurces/k001-2024-05-a016.xls"
         print(f"Processing file: {xls_file_name}")
         xls_file_root = load_xls_binary_data_from_file(xls_file_name)
-        simple_honey_counts = parse_xls_file(xls_file_root)
-        print_simple_honey_counts(simple_honey_counts)
+        honey_import_indo = parse_xls_file(xls_file_root)
+        print_honey_import_info(honey_import_indo)
         print(f"Finished processing file: {xls_file_name}")
 
 
