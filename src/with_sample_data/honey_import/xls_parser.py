@@ -44,12 +44,14 @@ def parse_xls_file(xls_file_root):
 
 
 def parse_xls_main(xls_file_list):
+    honey_import_info_list = []
     for xls_file_name in xls_file_list:
         # xls_file_name = "src/with_sample_data/honey_import/resoiurces/k001-2024-05-a016.xls"
         print(f"Processing file: {xls_file_name}")
         xls_file_root = load_xls_binary_data_from_file(xls_file_name)
-        honey_import_indo = parse_xls_file(xls_file_root)
-        print_honey_import_info(honey_import_indo)
+        honey_import_info_list.append(parse_xls_file(xls_file_root))
         print(f"Finished processing file: {xls_file_name}")
+    return honey_import_info_list
+
 
 

@@ -1,4 +1,5 @@
 from xls_parser import parse_xls_main
+from data_logger import print_honey_import_info
 
 # if getting files list contains trash files, then filter them
 def filter_xls_only(file_list):
@@ -19,7 +20,8 @@ def main():
     print(f"non_xls_file_list =  {non_xls_file_list}")
     result = parse_xls_main(xls_file_list)
     print("end honey import...")
-
+    for honey_import_info in result:
+        print_honey_import_info(honey_import_info)
 
 if __name__ == "__main__":
     main()
