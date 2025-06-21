@@ -42,6 +42,12 @@ get variance for input data_array
 
 current this package is implemented only simple integral function such y = ax + b
 
+### statistic experimence using real open data 
+
+Previous codes are for basic coding experiences.
+
+Now, I try to analyze data using real public data.
+
 ## Testing
 ```bash
 # testing
