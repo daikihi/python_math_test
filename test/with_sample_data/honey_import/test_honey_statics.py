@@ -1,10 +1,10 @@
 import unittest
-from src.with_sample_data.honey_import.honey_statics import get_honey_imports_average_by_country
+from src.with_sample_data.honey_import.honey_statics import get_honey_amount_by_country, get_honey_imports_average_by_country
 from src.with_sample_data.honey_import.honey_import_information import HoneyImportInfomation
 
 
 class TestHoneyStatics(unittest.TestCase):
-    """  """ # todo write here
+    """ HoneyStatics is a class for honey import statistics """ 
     def test_get_honey_imports_average_by_country(self):
         """ Test the average honey imports by country """
         info1 = HoneyImportInfomation("2023", "01", ["Japan", "USA"])
@@ -56,5 +56,31 @@ class TestHoneyStatics(unittest.TestCase):
             "Sweden": 83,
             "Candana": 66,
             "Australia": 100
+        }
+        self.assertEqual(result, expected_result)
+
+    def test_get_honey_amount_by_country(self):
+        """ Test the honey amount by country """
+        info1 = HoneyImportInfomation("2023", "01", ["Japan", "USA"])
+        info1.country_amount_map = {"Japan": 100, "USA": 200}
+        info1.country_price_map = {"Japan": 1000, "USA": 2000}
+
+        info2 = HoneyImportInfomation("2023", "02", ["Japan", "USA"])
+        info2.country_amount_map = {"Japan": 150, "USA": 250}
+        info2.country_price_map = {"Japan": 1500, "USA": 2500}
+        
+        info3 = HoneyImportInfomation("2023", "03", ["Japan", "USA"])
+        info3.country_amount_map = {"Japan": 200, "USA": 300}
+        info3.country_price_map = {"Japan": 2000, "USA": 3000}
+
+        honey_imports = [
+            info1, info2, info3
+        ]
+
+        result = get_honey_amount_by_country(honey_imports)
+
+        expected_result = {
+            "Japan": 450,
+            "USA": 750
         }
         self.assertEqual(result, expected_result)
