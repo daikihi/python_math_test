@@ -1,6 +1,5 @@
 from honey_import_information import HoneyImportInfomation
 from file_system_loader import load_xls_binary_data_from_file
-from data_logger import print_honey_import_info
 
 def parse_first_row(line):
     year = line[0]
